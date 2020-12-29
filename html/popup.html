@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        html {
+            width: 40ch;
+        }
+        .option {
+            display: block;
+            white-space: nowrap;
+            margin: 4px 0;
+        }
+        input[type="number"] {
+            width: 5ch;
+        }
+        input, label {
+            vertical-align: middle;
+        }
+        .container .container {
+            margin-left: 1ch;
+        }
+        .container .container .container {
+            margin-left: 2ch;
+        }
+        .key {
+            padding: 3px;
+            background: linear-gradient(rgb(240,240,240), white);
+            border: 1px solid rgb(230, 230, 230);
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="option">
+            <input id="sidebar" type="checkbox" checked>
+            <label for="sidebar">Enable sidebar</label>
+        </div>
+
+        <div class="container">
+            <div class="option">
+                <input id="sidebar-resize" type="checkbox" checked>
+                <label for="sidebar-resize">Enable sidebar resizing</label>
+            </div>
+
+            <div class="container">
+                <div class="option">
+                    <input type="number" value="" id="sidebar-size">
+                    <label for="sidebar-size">Default Sidebar Size</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <span>Delete mappings</span>
+        <div class="container">
+            <div class="option">
+                <input id="backspace-delete" type="checkbox" checked>
+                <label for="backspace-delete">Delete emails with <span class="key">backspace</span></label>
+            </div>
+            <div class="option">
+                <input id="delete-delete" type="checkbox" checked>
+                <label for="delete-delete">Delete emails with <span class="key">delete</span></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <span>Mail column size</span>
+        <div class="container">
+            <div class="option">
+                <input type="number" value="" id="author-width">
+                <label for="author-width">Maximum author width</label>
+            </div>
+            <div class="option">
+                <input type="number" value="" id="author-subject-padding">
+                <label for="author-subject-padding">Padding between author and subject</label>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
