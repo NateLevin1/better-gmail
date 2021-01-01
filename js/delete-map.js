@@ -15,7 +15,16 @@ chrome.storage.onChanged.addListener((changes, namespace)=>{
 
 document.addEventListener("keydown", (event)=>{
     if((event.key === "Backspace" && backspaceDelete) || (event.key === "Delete" && deleteDelete)) {
-        // send a keydown event with the key `#`
+        // send a keydown & keypress event with the key `#`
+        // keydown required on windows but not on mac
+        let keydownEvent = new KeyboardEvent("keydown", {
+            key: "#",
+            keyCode: 51,
+            which: 51,
+            code: "Digit3",
+            shiftKey: true
+        });
+        document.dispatchEvent(keydownEvent);
         let newEvent = new KeyboardEvent("keypress", {
             key: "#",
             keyCode: 51,
